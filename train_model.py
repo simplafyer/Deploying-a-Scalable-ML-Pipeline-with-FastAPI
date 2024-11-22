@@ -13,7 +13,7 @@ from ml.model import (
     train_model,
 )
 
-project_path = C:\Users\Jacob\Desktop\School\D501\Workspace\Deploying-a-Scalable-ML-Pipeline-with-FastAPI
+project_path = r"C:\Users\Jacob\Desktop\School\D501\Workspace\Deploying-a-Scalable-ML-Pipeline-with-FastAPI"
 data_path = os.path.join(project_path, "data", "census.csv")
 print(data_path)
 data = pd.load_csv('census.csv')
@@ -33,7 +33,6 @@ cat_features = [
     "native-country",
 ]
 
-# TODO: use the process_data function provided to process the data.
 X_train, y_train, encoder, lb = process_data(
     train,
     categorical_features=cat_features,
@@ -64,8 +63,7 @@ model = load_model(
     model_path
 ) 
 
-# TODO: use the inference function to run the model inferences on the test dataset.
-preds = None # your code here
+preds = inference(model,X_test)
 
 # Calculate and print the metrics
 p, r, fb = compute_model_metrics(y_test, preds)
@@ -80,6 +78,7 @@ for col in cat_features:
         p, r, fb = performance_on_categorical_slice(
             # your code here
             # use test, col and slicevalue as part of the input
+            performance_on_categorical_slice(data=test, column_name=col, slice_value=slicevalue)
         )
         with open("slice_output.txt", "a") as f:
             print(f"{col}: {slicevalue}, Count: {count:,}", file=f)
