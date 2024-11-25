@@ -6,6 +6,7 @@ from train_model import X_train, X_test, p, r, fb
 from sklearn.naive_bayes import CategoricalNB
 from sklearn.model_selection import train_test_split
 from ml.model import load_model
+
 project_path = r"/mnt/c/Users/Jacob/Desktop/School/D501/Workspace/Deploying-a-Scalable-ML-Pipeline-with-FastAPI"
 data_path = os.path.join(project_path, "data", "census.csv")
 print(data_path)
