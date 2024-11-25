@@ -1,28 +1,28 @@
 import pytest
-# TODO: add necessary import
+from train_model import X_train, X_test, p, r, fb
+from sklearn.naive_bayes import CategoricalNB
 
 # TODO: implement the first test. Change the function name and input as needed
-def test_one():
+def test_metrics_correct_range(r,p,fb):
     """
-    # add description for the first test
+    Test to insure that all test fall within expected values less that 1.
     """
-    # Your code here
-    pass
+    assert fb <= 1 and p <= 1 and r <= 1
 
 
 # TODO: implement the second test. Change the function name and input as needed
-def test_two():
+def test_model_expected(model):
     """
-    # add description for the second test
+    Verify that the pipeline is indeed running the CategoricalNB() model
     """
-    # Your code here
-    pass
+    assert isinstance(model, CategoricalNB)
 
 
-# TODO: implement the third test. Change the function name and input as needed
-def test_three():
+def sufficient_test_data(X_train, X_test):
     """
-    # add description for the third test
+    Test if train_test_split broke down the data properly,
+    setting aside approximately 20% of the data for testing.
     """
-    # Your code here
-    pass
+    test_ratio = X_test.size / (X_test.size + X_train.size)
+    assert 0.19 <= test_ratio <= 0.21
+

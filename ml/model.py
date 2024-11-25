@@ -18,7 +18,7 @@ def train_model(X_train, y_train):
     Returns
     -------
     model
-        Trained machine learning model.
+        Trained machine learning model. Categorical Naive Bayes
     """
     model = CategoricalNB()
     model.fit(X_train, y_train)
@@ -113,7 +113,7 @@ def performance_on_categorical_slice(
         Trained sklearn OneHotEncoder, only used if training=False.
     lb : sklearn.preprocessing._label.LabelBinarizer
         Trained sklearn LabelBinarizer, only used if training=False.
-    model : Linear Regression
+    model : CategoricalNB
         Model used for the task.
 
     Returns
@@ -123,7 +123,7 @@ def performance_on_categorical_slice(
     fbeta : float
 
     """
-    # TODO: implement the function
+    
     data_slice = data[data[column_name] == slice_value]
     
     X_slice, y_slice, _, _ = process_data(
