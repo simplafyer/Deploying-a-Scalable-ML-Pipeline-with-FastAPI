@@ -13,7 +13,7 @@ from ml.model import (
 
 @pytest.fixture(scope="session")
 def data():
-    project_path = r"/mnt/c/Users/Jacob/Desktop/School/D501/Workspace/Deploying-a-Scalable-ML-Pipeline-with-FastAPI"
+    project_path = os.path.dirname(__file__)
     data_path = os.path.join(project_path, "data", "census.csv")
     data = pd.read_csv(data_path)
 
@@ -22,7 +22,7 @@ def data():
 
 @pytest.fixture(scope="session")
 def model():
-    project_path = r"/mnt/c/Users/Jacob/Desktop/School/D501/Workspace/Deploying-a-Scalable-ML-Pipeline-with-FastAPI"
+    project_path = os.path.dirname(__file__)
     model_path = os.path.join(project_path, "model", "model.pkl")
     model = load_model(model_path)
     return model
@@ -30,7 +30,7 @@ def model():
 @pytest.fixture(scope="session")
 def metrics():
 
-    project_path = r"/mnt/c/Users/Jacob/Desktop/School/D501/Workspace/Deploying-a-Scalable-ML-Pipeline-with-FastAPI"
+    project_path = os.path.dirname(__file__)
     data_path = os.path.join(project_path, "data", "census.csv")
     data = pd.read_csv(data_path)
     train, test = train_test_split(data, test_size=0.2, random_state=42)
