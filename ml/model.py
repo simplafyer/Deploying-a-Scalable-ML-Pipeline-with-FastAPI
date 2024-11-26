@@ -7,7 +7,7 @@ from sklearn.naive_bayes import GaussianNB, CategoricalNB
 
 # Optional: implement hyperparameter tuning.
 
-@pytest.fixture(scope="session")
+
 def train_model(X_train, y_train):
     """
     Trains a machine learning model and returns it.
@@ -27,7 +27,7 @@ def train_model(X_train, y_train):
     model.fit(X_train, y_train)
     return model
 
-@pytest.fixture(scope="session")
+
 def compute_model_metrics(y, preds):
     """
     Validates the trained machine learning model using precision, recall, and F1.
@@ -81,7 +81,7 @@ def save_model(model, path):
     with open(path, 'wb') as f:
         pickle.dump(model, f)
 
-@pytest.fixture(scope="session")
+
 def load_model(path):
     """ Loads pickle file from `path` and returns it."""
 
